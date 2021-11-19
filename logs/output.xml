@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211116 21:55:08.775" rpa="false" schemaversion="2">
+<suite id="s1" name="Kws Automationmobile" source="E:\Projetos Robot\AutomatizacaoMobile\tests\kws_automationmobile.robot">
+<test id="s1-t1" name="Caso de teste 01: Pesquisar canal &quot;Pingo nos is&quot;">
+<kw name="Abrir Aplicativo" type="SETUP">
+<kw name="Set Appium Timeout" library="AppiumLibrary">
+<arg>20</arg>
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<status status="PASS" starttime="20211116 21:55:08.949" endtime="20211116 21:55:08.949"/>
+</kw>
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://localhost:4723/wd/hub</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=9885e630474a354e4f</arg>
+<arg>automationName=uiautomator2</arg>
+<arg>appPackage=com.google.android.youtube</arg>
+<arg>appActivity=com.google.android.youtube.HomeActivity</arg>
+<arg>autoGrantPermissions=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20211116 21:55:08.950" endtime="20211116 21:56:11.731"/>
+</kw>
+<status status="PASS" starttime="20211116 21:55:08.949" endtime="20211116 21:56:11.731"/>
+</kw>
+<kw name="Dado que o cliente esteja na tela Home">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>accessibility_id=Notificações</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20211116 21:56:11.733" endtime="20211116 21:56:17.622"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>accessibility_id=YouTube</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20211116 21:56:17.623" endtime="20211116 21:56:18.659"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:11.732" endtime="20211116 21:56:18.659"/>
+</kw>
+<kw name="E pesquise um video sobre &quot;Pingo nos is&quot;" sourcename="E pesquise um video sobre &quot;${PESQUISA}&quot;">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>accessibility_id=Pesquisar</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20211116 21:56:18.661" level="INFO">Clicking element 'accessibility_id=Pesquisar'.</msg>
+<status status="PASS" starttime="20211116 21:56:18.660" endtime="20211116 21:56:19.533"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>id=search_edit_text</arg>
+<arg>${PESQUISA}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20211116 21:56:19.534" level="INFO">Typing text 'Pingo nos is' into text field 'id=search_edit_text'</msg>
+<status status="PASS" starttime="20211116 21:56:19.533" endtime="20211116 21:56:23.728"/>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<arg>66</arg>
+<doc>Sends a press of keycode to the device.</doc>
+<status status="PASS" starttime="20211116 21:56:23.729" endtime="20211116 21:56:25.224"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:18.659" endtime="20211116 21:56:25.224"/>
+</kw>
+<kw name="E acessar o canal da Pingo nos is">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>id=com.google.android.youtube:id/player_fragment_container</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20211116 21:56:25.226" endtime="20211116 21:56:29.321"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>id=com.google.android.youtube:id/player_fragment_container</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20211116 21:56:29.322" level="INFO">Clicking element 'id=com.google.android.youtube:id/player_fragment_container'.</msg>
+<status status="PASS" starttime="20211116 21:56:29.321" endtime="20211116 21:56:30.484"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:25.224" endtime="20211116 21:56:30.485"/>
+</kw>
+<kw name="Quando clicar em inscreves-se">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>accessibility_id=Inscreva-se em Os Pingos nos Is.</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20211116 21:56:30.486" endtime="20211116 21:56:34.538"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>accessibility_id=Inscreva-se em Os Pingos nos Is.</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20211116 21:56:34.542" level="INFO">Clicking element 'accessibility_id=Inscreva-se em Os Pingos nos Is.'.</msg>
+<status status="PASS" starttime="20211116 21:56:34.539" endtime="20211116 21:56:35.372"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:30.485" endtime="20211116 21:56:35.372"/>
+</kw>
+<kw name="Então será apresentado com inscrito">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>accessibility_id=Cancelar inscrição de Os Pingos nos Is.</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20211116 21:56:35.373" endtime="20211116 21:56:36.363"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:35.373" endtime="20211116 21:56:36.364"/>
+</kw>
+<kw name="Fechar Aplicativo" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20211116 21:56:37.188" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211116 21:56:36.365" endtime="20211116 21:56:37.188"/>
+</kw>
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" starttime="20211116 21:56:37.189" endtime="20211116 21:56:37.732"/>
+</kw>
+<status status="PASS" starttime="20211116 21:56:36.364" endtime="20211116 21:56:37.732"/>
+</kw>
+<tag>INSCREVER</tag>
+<status status="PASS" starttime="20211116 21:55:08.948" endtime="20211116 21:56:37.736"/>
+</test>
+<status status="PASS" starttime="20211116 21:55:08.777" endtime="20211116 21:56:37.737"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">INSCREVER</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Kws Automationmobile">Kws Automationmobile</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
