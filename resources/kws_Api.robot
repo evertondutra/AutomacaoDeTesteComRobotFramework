@@ -49,6 +49,24 @@ Cadastrar um novo livro
     ...                                 headers=${HEADERS}
     Log                                 ${RESPOSTA.text}
     Set Test Variable                   ${RESPOSTA}
+    ${BOOK}       Set Variable     ${BOOK_2323}
+    Set Test Variable    ${BOOK}
+    ${ID}  Set Variable   ${BOOK.id}
+    Set Test Variable    ${ID}
+
+Alteração do livro (PUT)
+    [Arguments]        ${ID}
+    ${HEADERS}     Create Dictionary    content-type=application/json
+    ${RESPOSTA}    PUT On Session    fakeAPI    Books/${ID} 
+    ...            json=&{BOOK_300}
+    #...            data={"id": 300,"title": "teAtualizei este livroste","description": "livro de teste","pageCount": 1,"excerpt": "teste","publishDate": "2021-11-17T16:24:19.875Z"}ok
+    ...            headers=${HEADERS}
+    Log                                  ${RESPOSTA.text}    
+    Set Test Variable                    ${RESPOSTA} 
+    ${BOOK}       Set Variable       ${BOOK_300}
+    Set Test Variable    ${BOOK}
+
+
 
 
 # CONFERENCIAS
@@ -65,6 +83,7 @@ Conferir se retornou uma lista com ${QTD_LIVROS} livros
 
 Conferir se retorna todos os dados corretos do livro
     [Arguments]                       ${ID_LIVRO}
+    
     Dictionary Should Contain Item    ${RESPOSTA.json()}   id               ${BOOK_15.id}  
     Dictionary Should Contain Item    ${RESPOSTA.json()}   title            ${BOOK_15.title}
     Dictionary Should Contain Item    ${RESPOSTA.json()}   pageCount        ${BOOK_15.pageCount}
@@ -74,31 +93,12 @@ Conferir se retorna todos os dados corretos do livro
     Should Not Be Empty               item                 ${RESPOSTA.json()["publishDate"]}
 
 
-Conferir se retorna todos os dados corretos do novo livro
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   id               ${BOOK_2323.id}  
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   title            ${BOOK_2323.title}
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   pageCount        ${BOOK_2323.pageCount}
-
-    Should Not Be Empty               item                 ${RESPOSTA.json()["description"]}
-    Should Not Be Empty               item                 ${RESPOSTA.json()["excerpt"]}
-    Should Not Be Empty               item                 ${RESPOSTA.json()["publishDate"]}
-
-Alteração do livro (PUT)
-    [Arguments]        ${ID}
-    ${HEADERS}     Create Dictionary    content-type=application/json
-    ${RESPOSTA}    PUT On Session    fakeAPI    Books/${ID} 
-    ...            json=&{BOOK_300}
-    #...            data={"id": 300,"title": "teAtualizei este livroste","description": "livro de teste","pageCount": 1,"excerpt": "teste","publishDate": "2021-11-17T16:24:19.875Z"}
-    ...            headers=${HEADERS}
-    Log            ${RESPOSTA.text}    
-    Set Test Variable    ${RESPOSTA}  
-
 Conferir se retorna todos os dados do livro 
-    Log    ${BOOK_300.id}
+    [Arguments]            ${ID}
     Log          ${RESPOSTA.json()["id"]}
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   id               ${BOOK_300.id}  
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   title            ${BOOK_300.title}
-    Dictionary Should Contain Item    ${RESPOSTA.json()}   pageCount        ${BOOK_300.pageCount}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}   id               ${BOOK.id}  
+    Dictionary Should Contain Item    ${RESPOSTA.json()}   title            ${BOOK.title}
+    Dictionary Should Contain Item    ${RESPOSTA.json()}   pageCount        ${BOOK.pageCount}
 
     Should Not Be Empty               item                 ${RESPOSTA.json()["description"]}
     Should Not Be Empty               item                 ${RESPOSTA.json()["excerpt"]}
@@ -111,5 +111,5 @@ Deletar um livro
     Set Test Variable    ${RESPOSTA} 
 
 
-Conferir se o delete do lista
+Conferir o delete do lista
     Should Be Empty    ${RESPOSTA.text}    

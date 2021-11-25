@@ -26,18 +26,19 @@ Cadastrar um novo livro (POST)
     Cadastrar um novo livro
     Coferir reason     OK
     Conferir o status code    200
-    Conferir se retorna todos os dados corretos do novo livro
+    Conferir se retorna todos os dados do livro   ${ID}
 
 Alterar um livro (PUT) 150
     [Tags]        PUT
-    Alteração do livro (PUT)    163
+    ${ID}       Set Variable    150
+    Alteração do livro (PUT)    ${ID}
     Coferir reason     OK
     Conferir o status code    200
-    Conferir se retorna todos os dados do livro 
+    Conferir se retorna todos os dados do livro   ${ID}  
 
 Deletar um livro (DELETE)
     [Tags]        DELETE
-    Deletar um livro    100
-    Conferir se o delete do lista
+    Deletar um livro    100 
+    Conferir o delete do lista
     Coferir reason     OK
     Conferir o status code    200
